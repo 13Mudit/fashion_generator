@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
 
+// const Products;
 function SearchBar() {
   const [imageData, setImageData] = useState(null);
   const [postData, setPostData] = useState({ user: '', query: '' });
@@ -20,6 +21,7 @@ function SearchBar() {
         console.log('POST request successful');
         // Trigger a GET request after successful POST
         fetchImage();
+        getProductsToRender();
       } else {
         console.error('POST request failed');
       }
@@ -49,6 +51,30 @@ function SearchBar() {
       console.error('Error fetching image:', error);
     }
   };
+
+  // Function to handle the items returned from the inventory
+  const getProductsToRender = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/on_sale/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', // Set the content type
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the retrieved JSON data here
+        console.log("data is ",  data);
+      })
+      .catch(error => {
+        // Handle errors here
+        console.log("Error in getting products list")
+      });
+    } catch(error) {
+      console.error("Error in getting Products data", error);
+    }
+  }
+
 
   useEffect(() => {
     if (imageData) {
@@ -89,4 +115,5 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default SearchBar;
+// export let Products = Products;
