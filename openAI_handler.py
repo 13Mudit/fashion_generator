@@ -16,7 +16,7 @@ class OpenAI:
 - Age specified in query (field name: age, field type: string, possible values: [kid, teen, teen adult, adult])
 - Season specified in the query (field name: season, field type: string, possible values: [summer, winter, summer winter])
 - Types of outfit specified is form of list of strings (field name: type, field type: list, possible values: [ethnic, casual, formal, business casual, military, corset])
-- Gender specified in query (field name: gender, field type: string, possible values: [male, female, unspecified])
+- Gender specified in query (field name: gender, field type: string, possible values: [male, female])
 - Colours of outfit specified in query in form of a list of strings (field name: colour, field type: list)
 
 In general, if certain information is not stated, set the respective field to null
