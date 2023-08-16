@@ -10,6 +10,7 @@ const ProductComponent = ({ image, flipkartLink }) => {
       
       <a href = {flipkartLink} target = "_blank"> <img src ={image}/> </a>
       <br />
+      <br />
     </div>
   );
 };
