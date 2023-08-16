@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
 
-// const Products;
+const productsArray = [];
 function SearchBar() {
   const [imageData, setImageData] = useState(null);
   const [postData, setPostData] = useState({ user: '', query: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+
 
   // Function to handle the POST request
   const handlePost = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch('http://localhost:8000/query/', {
         method: 'POST',
         headers: {
@@ -39,8 +43,9 @@ function SearchBar() {
           'Content-Type': 'image/png', // Set the content type
         },
       });
-
+      setIsLoading(false);
       if (response.ok) {
+        console.log("Image retrived");
         const blob = await response.blob();
         const url = URL.createObjectURL(blob);
         setImageData(url);
@@ -53,9 +58,9 @@ function SearchBar() {
   };
 
   // Function to handle the items returned from the inventory
-  const getProductsToRender = async () => {
+  const getProductsToRender = () => {
     try {
-      const response = await fetch('http://localhost:8000/on_sale/', {
+      const response = fetch('http://localhost:8000/on_sale/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json', // Set the content type
@@ -65,6 +70,8 @@ function SearchBar() {
       .then(data => {
         // Handle the retrieved JSON data here
         console.log("data is ",  data);
+        setProducts(data);
+        productsArray = products;
       })
       .catch(error => {
         // Handle errors here
@@ -110,10 +117,14 @@ function SearchBar() {
           />
         </div>
       </div>
-      {imageData && <img src={imageData} alt="Fetched Image" />}
+      {isLoading ? (
+        <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
+      ) : (
+        imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
+      )}
     </div>
   );
 }
 
 export default SearchBar;
-// export let Products = Products;
+export let ProductsList = productsArray;
