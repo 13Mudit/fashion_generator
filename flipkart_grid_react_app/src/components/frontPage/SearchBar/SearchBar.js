@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
 
+const start = 1;
 const productsArray = [];
 function SearchBar() {
   const [imageData, setImageData] = useState(null);
@@ -26,6 +27,7 @@ function SearchBar() {
         // Trigger a GET request after successful POST
         fetchImage();
         getProductsToRender();
+        start = 0;
       } else {
         console.error('POST request failed');
       }
@@ -128,3 +130,4 @@ function SearchBar() {
 
 export default SearchBar;
 export let ProductsList = productsArray;
+export let Start = start;
