@@ -1,14 +1,14 @@
 // import {ProductsList} from './SearchBar/SearchBar.js';
 import {useState} from 'react';
 import { Start } from './SearchBar/SearchBar';
-
+import './Product.css';
 import React from 'react';
 
 const ProductComponent = ({ image, flipkartLink }) => {
   return (
-    <div>
+    <div className='article-card'>
       
-      <a href = {flipkartLink} target = "_blank"> <img src ={image}/> </a>
+      <a href = {flipkartLink} target = "_blank"> <img src ={image} className='image-cls'/> </a>
       <br />
       <br />
     </div>

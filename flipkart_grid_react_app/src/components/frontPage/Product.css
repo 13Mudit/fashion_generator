@@ -1,0 +1,30 @@
+.article-card {
+
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 300ms;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .article-card a{
+   
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  /* .article-card a img {
+    height: 100 px;
+    width: auto;
+  } */
+
+  .image-cls{
+    height: 100px;
+    width: auto;
+  }
