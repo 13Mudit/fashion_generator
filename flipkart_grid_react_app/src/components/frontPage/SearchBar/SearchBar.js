@@ -1,48 +1,63 @@
 import React, { useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
-
 import { AiOutlineSend } from 'react-icons/ai';
 
-const SearchBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [promptValue, setPromptValue] = useState('');
+function SearchBar() {
+  const [searchValue, setSearchValue] = useState('');
+  const [userId, setUserId] = useState('');
   
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  const handleConfirm = () => {
-    // Do something with the promptValue, e.g., show an alert
-    alert(`You entered: ${promptValue}`);
-
-    // SEND TO BACKEND 
-    handleClose();
+  const handleSubmit = () => {
+    const dataToSend = {
+      searchValue: searchValue,
+      userId: userId,
+    };
+    
+    fetch('https://api.example.com/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToSend),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Data successfully sent:', data);
+        setSearchValue('');
+        setUserId('');
+      })
+      .catch(error => console.error('Error sending data:', error));
   };
 
   return (
-    <div className="prompt-container">
-      <div className="prompt-box">
-        <div className="input-container">
-          <input
-            type="text"
-            value={promptValue}
-            onChange={(e) => setPromptValue(e.target.value)}
-            placeholder="Enter something"
-          />
-          <button className="send-button" onClick={handleConfirm}>
+    <div>
+      <div className="prompt-container">
+        <div className="prompt-box">
+          <div className="input-container">
+            <input
+              type="text"
+              id="searchInput"
+              value={searchValue}
+              onChange={event => setSearchValue(event.target.value)}
+              placeholder='define your fashion'
+            />
+          </div>
+        </div>
+        <button className="send-button" onClick={handleSubmit}>
             <AiOutlineSend />
           </button>
+        <div className="user-input">
+          <input
+            type="text"
+            id="userIdInput"
+            value={userId}
+            onChange={event => setUserId(event.target.value)}
+            placeholder='user id'
+          />
         </div>
       </div>
+      
     </div>
-
   );
-};
-
-
+}
 
 export default SearchBar;
