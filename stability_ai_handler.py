@@ -2,6 +2,8 @@
 import requests
 import json
 import base64
+from PIL import Image
+from io import BytesIO
 
 class StableDiffusion:
     def __init__(self, api_key_file_path):
@@ -23,7 +25,22 @@ class StableDiffusion:
             raise Exception(f"Stability API key file doesnt exist at {file_path}")
 
 
-    def request(self, image, prompt, strength=0.45):
+    def request_trend(self, prompt, user_id, image_url, strength=0.3):
+
+        trend_response = requests.get(image_url)
+        if not trend_response:
+            raise Exception("Trend image url not reachable")
+
+
+        trend_img = Image.open(BytesIO(response.content))
+        trend_img.save(f"{user_id}.png")
+
+        success = self.request(prompt, user_id, strength=strength)
+
+        return success
+
+
+    def request(self, prompt, user_id, strength=0.45):
 
         response = requests.post(
             f"{self.api_host}/v1/generation/{self.engine_id}/image-to-image",
@@ -32,7 +49,7 @@ class StableDiffusion:
                 "Authorization": f"Bearer {self.api_key}"
             },
             files={
-                "init_image": open(image, "rb")
+                "init_image": open(f"./out/{user_id}.png", "rb")
             },
             data={
                 "image_strength": strength,
@@ -52,7 +69,42 @@ class StableDiffusion:
         data = response.json()
 
         for i, image in enumerate(data["artifacts"]):
-            with open(f"./out/v1_img_{i}.png", "wb") as f:
+            with open(f"./out/{user_id}.png", "wb") as f:
+                f.write(base64.b64decode(image["base64"]))
+
+        return data["artifacts"][0]["finishReason"]
+
+    def request_no_trend(self, prompt, user_id):
+
+        response = requests.post(
+            f"{self.api_host}/v1/generation/{self.engine_id}/text-to-image",
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": f"Bearer {self.api_key}"
+            },
+            json={
+                "text_prompts": [
+                    {
+                        "text": prompt
+                    }
+                ],
+                "cfg_scale": 35,
+                "height": 512,
+                "width": 512,
+                "samples": 1,
+                "steps": 30,
+                "style_preset": "photographic",
+            },
+        )
+
+        if response.status_code != 200:
+            return "FAIL"
+
+        data = response.json()
+
+        for i, image in enumerate(data["artifacts"]):
+            with open(f"./out/{user_id}.png", "wb") as f:
                 f.write(base64.b64decode(image["base64"]))
 
         return data["artifacts"][0]["finishReason"]

@@ -1,17 +1,17 @@
-image_url,age_group,season,outfit_type,gender, timestamp
-https://i.pinimg.com/originals/81/f7/6c/81f76ce32c57717d887932b8030ebdc8.png,adult,summer,ethnic suite,female,01-05-2023
-https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTN_uSWRcIjtnw19RRFl2jIZCR1wnu5HtoWof0L7sPOe7HdVvpHAWH15FviDGrPUNaydGdT56f0AIWm-eAWH5EBMes2bRwwrHStmeu7oyOj&usqp=CAc, adult,summer,ethnic sherwani,male,01-05-2023
-https://i.pinimg.com/564x/77/c1/6a/77c16a6657e5bca1da24c4cf6105d1fb.jpg,teen,winter,casual,male,01-10-2022
-https://www.stylesnic.com/wp-content/uploads/2020/11/Trendy-and-Latest-Winter-Outfits-for-Teens-Girls.jpg,teen adult,winter,casual,female,01-10-2022
-https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSRU_fQPqWT2KmB9K4-wHj33CYtWqv-fwIyGebkzqXX8sxKiIbJhm1A9jxmQVS2s-dqXRqTQenWvwSLCsFD-KlzJdrSygx3l4vfYI73HL0Ph24mkYmZZpN7&usqp=CAc, teen adult,summer winter,professional suites,males,01-05-2023
-https://i.pinimg.com/564x/92/bc/e6/92bce6e871986a01e547fbe35901a4b3.jpg,kid,winter,casual,male,01-10-2022
-https://i.pinimg.com/originals/52/49/2a/52492a72800e4a4120c5a4404a9b1a0f.jpg,kid,winter,casual,female,01-10-2022
-https://modernteen.co/wp-content/uploads/2023/04/summer-outfits-for-teenage-girls.jpg,teen adult,summer,casual,female,01-05-2023
-https://modernteen.co/wp-content/uploads/2021/04/Summer-1.jpeg,teen adult,summer,casual,male,01-05-2023
-https://m.media-amazon.com/images/I/71U4SsZxsoL._AC_UL600_FMwebp_QL65_.jpg,kid,summer,ethnic,male,01-05-2023
-https://imagescdn.allensolly.com/img/app/product/8/815967-9744288.jpg?q=75&auto=format&w=342,adult,winter,professional,female,01-10-2022
-https://www.kosha.co/journal/wp-content/uploads/2022/06/business-casual-men-3-640x800.jpg,adult,winter,business casual,male,01-10-2022
-https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-IGQ63STIIj26hshkPNBvQM7Q7ojmTF0U4wj-nwcqNLV8pbT1N9PzuvcuRBAuFDWC5YJ8TVRirENG4UKptJGQJpXpatRKIPqPzK6AOgw4J1bx1T6mSQH3&usqp=CAc,adult,summer,ethnic saree,female,01-05-2002
-https://medias.utsavfashion.com/media/catalog/product/cache/1/small_image/295x/040ec09b1e35df139433887a97daa66f/b/r/brocade-sherwani-in-black-and-beige-v1-mxx422.jpg,adult,winter,ethnic sherwani,male,01-05-2002
-https://i.pinimg.com/736x/74/18/8c/74188c93cac6703278772e2d50aa7d98.jpg,teens adult,summer winter,corsets,female,01-01-1980
-https://m.media-amazon.com/images/I/71XbTNqCxFL._UY879_.jpg,adult, summer winter,military uniform,male,01-01-1930
+image_url,age,season,type,gender,timestamp,colour
+https://i.pinimg.com/originals/81/f7/6c/81f76ce32c57717d887932b8030ebdc8.png,adult,summer,ethnic suite,female,01-05-2023,pink
+https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTN_uSWRcIjtnw19RRFl2jIZCR1wnu5HtoWof0L7sPOe7HdVvpHAWH15FviDGrPUNaydGdT56f0AIWm-eAWH5EBMes2bRwwrHStmeu7oyOj&usqp=CAc, adult,summer,ethnic sherwani,male,01-05-2023,white
+https://i.pinimg.com/564x/77/c1/6a/77c16a6657e5bca1da24c4cf6105d1fb.jpg,teen,winter,casual,male,01-10-2022,"dark green"
+https://www.stylesnic.com/wp-content/uploads/2020/11/Trendy-and-Latest-Winter-Outfits-for-Teens-Girls.jpg,teen adult,winter,casual,female,01-10-2022,"blue pink"
+https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSRU_fQPqWT2KmB9K4-wHj33CYtWqv-fwIyGebkzqXX8sxKiIbJhm1A9jxmQVS2s-dqXRqTQenWvwSLCsFD-KlzJdrSygx3l4vfYI73HL0Ph24mkYmZZpN7&usqp=CAc, teen adult,summer winter,professional suites,males,01-05-2023,"pastel green"
+https://i.pinimg.com/564x/92/bc/e6/92bce6e871986a01e547fbe35901a4b3.jpg,kid,winter,casual,male,01-10-2022,"brown blue"
+https://i.pinimg.com/originals/52/49/2a/52492a72800e4a4120c5a4404a9b1a0f.jpg,kid,winter,casual,female,01-10-2022,"cream yellow"
+https://modernteen.co/wp-content/uploads/2023/04/summer-outfits-for-teenage-girls.jpg,teen adult,summer,casual,female,01-05-2023,green
+https://modernteen.co/wp-content/uploads/2021/04/Summer-1.jpeg,teen adult,summer,casual,male,01-05-2023,white blue
+https://m.media-amazon.com/images/I/71U4SsZxsoL._AC_UL600_FMwebp_QL65_.jpg,kid,summer,ethnic,male,01-05-2023,red
+https://imagescdn.allensolly.com/img/app/product/8/815967-9744288.jpg?q=75&auto=format&w=342,adult,winter,professional,female,01-10-2022,grey green
+https://www.kosha.co/journal/wp-content/uploads/2022/06/business-casual-men-3-640x800.jpg,adult,winter,business casual,male,01-10-2022,dark grey
+https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT-IGQ63STIIj26hshkPNBvQM7Q7ojmTF0U4wj-nwcqNLV8pbT1N9PzuvcuRBAuFDWC5YJ8TVRirENG4UKptJGQJpXpatRKIPqPzK6AOgw4J1bx1T6mSQH3&usqp=CAc,adult,summer,ethnic saree,female,01-05-2002,green red
+https://medias.utsavfashion.com/media/catalog/product/cache/1/small_image/295x/040ec09b1e35df139433887a97daa66f/b/r/brocade-sherwani-in-black-and-beige-v1-mxx422.jpg,adult,winter,ethnic sherwani,male,01-05-2002,black gold
+https://i.pinimg.com/736x/74/18/8c/74188c93cac6703278772e2d50aa7d98.jpg,teens adult,summer winter,corsets,female,01-01-1980,green
+https://m.media-amazon.com/images/I/71XbTNqCxFL._UY879_.jpg,adult,summer winter,military uniform,male,01-01-1930,red brown
