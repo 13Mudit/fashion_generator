@@ -70,8 +70,8 @@ async def generate(query: Query):
         first_query = True
 
 
-    # user_preference_from_prompt = text_davinci.request(query.query)
-    user_preference_from_prompt = {'age': None, 'season': None, 'type': ['casual'], 'gender': None, 'colour': ['red']}
+    user_preference_from_prompt = text_davinci.request(query.query)
+    # user_preference_from_prompt = {'age': None, 'season': None, 'type': ['casual'], 'gender': None, 'colour': ['red']}
     
     #DEBUG 
     print("OpenAI output:",user_preference_from_prompt)
