@@ -4,11 +4,12 @@ import { Start } from './SearchBar/SearchBar';
 
 import React from 'react';
 
-const ProductComponent = ({ id, name }) => {
+const ProductComponent = ({ image, flipkartLink }) => {
   return (
     <div>
-      <h3>Product ID: {id}</h3>
-      <p>Product Name: {name}</p>
+      
+      <a href = {flipkartLink} target = "_blank"> <img src ={image}/> </a>
+      <br />
     </div>
   );
 };
@@ -22,7 +23,7 @@ const Products = ({ ProductsList }) => {
             <div>
             <h2>Products List</h2>
             {ProductsList.map(product => (
-                <ProductComponent key={product.id} id={product.id} name={product.name} />
+                <ProductComponent image={product.image_url} flipkartLink={product.url} />
             ))}
             </div>
         );
