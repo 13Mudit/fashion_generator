@@ -4,6 +4,7 @@ import random
 from faker import Faker
 
 client = MongoClient("13mudit.tech", 27017)
+# client = MongoClient("localhost", 27017)
 
 db = client['fashion_generator']
 
@@ -40,8 +41,10 @@ for i in range(10):
 		})
 
 
-trend_df = pd.read_csv("outfits.csv")
-on_sale_df = pd.read_csv('on_sale.csv')
+trend_df = pd.read_csv("outfits.csv", encoding='utf-8')
+on_sale_df = pd.read_csv('on_sale.csv', encoding='utf-8')
 
-trends.insert_many(eval(trend_df.to_json(orient='records')))
-on_sale.insert_many(eval(on_sale_df.to_json(orient='records')))
+# print(trend_df.to_json(orient='records'))
+
+trends.insert_many(trend_df.to_dict(orient='records'))
+on_sale.insert_many(on_sale_df.to_dict(orient='records'))
