@@ -83,7 +83,8 @@ async def generate(query: Query):
             # User drastically changed search query to the point we can hit trends database again
                 first_query = True
 
-        user_preference[attrb] = user_preference_from_prompt[attrb]    
+        if user_preference_from_prompt[attrb] is not None:
+            user_preference[attrb] = user_preference_from_prompt[attrb]     
 
     users.update_one({
         "id": current_session
