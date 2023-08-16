@@ -32,7 +32,7 @@ class StableDiffusion:
             raise Exception("Trend image url not reachable")
 
 
-        trend_img = Image.open(BytesIO(response.content))
+        trend_img = Image.open(BytesIO(trend_response.content))
         trend_img.save(f"{user_id}.png")
 
         success = self.request(prompt, user_id, strength=strength)
@@ -103,9 +103,14 @@ class StableDiffusion:
 
         data = response.json()
 
+
         for i, image in enumerate(data["artifacts"]):
             with open(f"./out/{user_id}.png", "wb") as f:
                 f.write(base64.b64decode(image["base64"]))
+
+        # image = Image.open(BytesIO(base64.b64decode(data['artifacts'][0]["base64"])))
+        # image = image.resize((512, 512))
+        # image.save(f"./out/{user_id}.png")
 
         return data["artifacts"][0]["finishReason"]
 

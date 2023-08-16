@@ -70,7 +70,8 @@ async def generate(query: Query):
         first_query = True
 
 
-    user_preference_from_prompt = text_davinci.request(query.query)
+    # user_preference_from_prompt = text_davinci.request(query.query)
+    user_preference_from_prompt = {'age': None, 'season': None, 'type': ['casual'], 'gender': None, 'colour': ['red']}
     
     #DEBUG 
     print("OpenAI output:",user_preference_from_prompt)
@@ -167,7 +168,6 @@ async def get_image():
     return f"./out/{current_session}.png"
 
 
-# TODO
 @app.get("/on_sale/")
 async def get_on_sale():
     return on_sale_products
