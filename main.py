@@ -48,6 +48,7 @@ user_preference = {
     "gender": None,
     "colour": None
 }
+on_sale_products = []
 
 first_query = False
 breaking_attrb = ['age', 'gender', 'type']
@@ -55,7 +56,7 @@ breaking_attrb = ['age', 'gender', 'type']
 
 @app.post("/query/")
 async def generate(query: Query):
-    global current_session
+    global current_session, on_sale_products
 
     if query.user != current_session:
         # First query of session
@@ -96,18 +97,52 @@ async def generate(query: Query):
             }
         })
 
+    #DEBUG 
+    print("User preference:",user_preference)
+    
+    #get on-sale products
+    on_sale_products = []
+    get_on_sale_query =  {
+    "$and": [
+                {"age": {"$regex": f".*{user_preference['age']}.*" if user_preference['age'] is not None else ".*"}},
+                {"season": {"$regex": f".*{user_preference['season']}.*" if user_preference['season'] is not None else ".*"}},
+                {
+                    "$or": [{"type": {"$regex": f".*{t}.*"}} for t in user_preference['type']] if user_preference['type'] else [{"type": {"$regex": ".*"}}]
+                },
+                {"gender": user_preference['gender'] if user_preference['gender'] else {"$exists": True}},
+                {
+                    "$or": [{"colour": {"$regex": f".*{c}.*"}} for c in user_preference['colour']] if user_preference['colour'] else [{"colour": {"$regex": ".*"}}]
+                }
+            ]
+    }
+
+    print(get_on_sale_query)
+
+    on_sale_cursor = on_sale.find(get_on_sale_query)
+
+    for on_sale_product in on_sale_cursor:
+        on_sale_products.append({
+            "image_url": on_sale_product['image_url'],
+            "url": on_sale_product['url']
+            })
+
+    # print(on_sale_products)
+
 
     if first_query:
         # hit the trends database
-        trend_cursor = trends.find({ "$and": [
-                {"age": {"$regex": f".*{user_preference['age']}.*"}},
-                {"season": {"$regex": f".*{user_preference['season']}.*"}},
-                {
-                    "$or": [{"type": {"$regex": f".*{t}.*"}} for t in user_preference['type']]
-                },
-                {"gender": user_preference['gender']} 
-            ]
-            }).sort('timestamp', -1)
+        get_trend_query = {
+        "$and": [
+                    {"age": {"$regex": f".*{user_preference['age']}.*" if user_preference['age'] is not None else ".*"}},
+                    {"season": {"$regex": f".*{user_preference['season']}.*" if user_preference['season'] is not None else ".*"}},
+                    {
+                        "$or": [{"type": {"$regex": f".*{t}.*"}} for t in user_preference['type']] if user_preference['type'] else [{"type": {"$regex": ".*"}}]
+                    },
+                    {"gender": user_preference['gender'] if user_preference['gender'] else {"$exists": True}}
+                ]
+        }
+
+        trend_cursor = trends.find(get_trend_query).sort('timestamp', -1)
 
 
         try:
@@ -132,5 +167,7 @@ async def get_image():
     return f"./out/{current_session}.png"
 
 
-#TODO
-# @app.get("/on_sale/{number}")
+# TODO
+@app.get("/on_sale/")
+async def get_on_sale():
+    return on_sale_products
