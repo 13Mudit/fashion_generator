@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import random
 from faker import Faker
 
-client = MongoClient("localhost", 27017)
+client = MongoClient("13mudit.tech", 27017)
 
 db = client['fashion_generator']
 
