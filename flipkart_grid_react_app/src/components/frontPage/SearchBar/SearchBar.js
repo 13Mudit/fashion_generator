@@ -8,11 +8,11 @@ function SearchBar() {
   
   const handleSubmit = () => {
     const dataToSend = {
-      searchValue: searchValue,
-      userId: userId,
+      query: searchValue,
+      user: userId,
     };
     
-    fetch('https://api.example.com/search', {
+    fetch('http://localhost:8000/query/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

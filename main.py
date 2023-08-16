@@ -17,7 +17,7 @@ class Query(BaseModel):
 app = FastAPI()
 
 
-client = MongoClient("localhost", 27017)
+client = MongoClient("13mudit.tech", 27017)
 
 db = client['fashion_generator']
 
