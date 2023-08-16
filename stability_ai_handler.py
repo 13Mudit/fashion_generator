@@ -33,7 +33,10 @@ class StableDiffusion:
 
 
         trend_img = Image.open(BytesIO(trend_response.content))
-        trend_img.save(f"{user_id}.png")
+        trend_img = trend_img.resize((512, 512))
+        trend_img.save(f"./out/{user_id}.png")
+
+        print("response with trend")
 
         success = self.request(prompt, user_id, strength=strength)
 
@@ -64,13 +67,16 @@ class StableDiffusion:
 
 
         if response.status_code != 200:
+            print(response.reason)
             return "FAIL"
 
         data = response.json()
 
-        for i, image in enumerate(data["artifacts"]):
-            with open(f"./out/{user_id}.png", "wb") as f:
-                f.write(base64.b64decode(image["base64"]))
+        print("response!!")
+
+        image = Image.open(BytesIO(base64.b64decode(data['artifacts'][0]["base64"])))
+        image = image.resize((512, 512))
+        image.save(f"./out/{user_id}.png")
 
         return data["artifacts"][0]["finishReason"]
 
@@ -99,18 +105,21 @@ class StableDiffusion:
         )
 
         if response.status_code != 200:
+            print(response.reason)
             return "FAIL"
 
         data = response.json()
 
 
-        for i, image in enumerate(data["artifacts"]):
-            with open(f"./out/{user_id}.png", "wb") as f:
-                f.write(base64.b64decode(image["base64"]))
+        # for i, image in enumerate(data["artifacts"]):
+        #     with open(f"./out/{user_id}.png", "wb") as f:
+        #         f.write(base64.b64decode(image["base64"]))
 
-        # image = Image.open(BytesIO(base64.b64decode(data['artifacts'][0]["base64"])))
-        # image = image.resize((512, 512))
-        # image.save(f"./out/{user_id}.png")
+        print("response without trend")
+
+        image = Image.open(BytesIO(base64.b64decode(data['artifacts'][0]["base64"])))
+        image = image.resize((512, 512))
+        image.save(f"./out/{user_id}.png")
 
         return data["artifacts"][0]["finishReason"]
 
