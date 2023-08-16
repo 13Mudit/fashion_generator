@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
+import Products from '../Products.js'
 
-const start = 1;
-const productsArray = [];
+let start = 1;
 function SearchBar() {
   const [imageData, setImageData] = useState(null);
   const [postData, setPostData] = useState({ user: '', query: '' });
@@ -73,7 +73,7 @@ function SearchBar() {
         // Handle the retrieved JSON data here
         console.log("data is ",  data);
         setProducts(data);
-        productsArray = products;
+
       })
       .catch(error => {
         // Handle errors here
@@ -96,38 +96,49 @@ function SearchBar() {
 
   return (
     <div>
-      <div className="prompt-container">
-        <div className="prompt-box">
-          <div className="input-container">
-            <input
+      <div className='left'>
+        <div className="prompt-container">
+          <div className="prompt-box">
+            <div className="input-container">
+              <input
+                type="text"
+                value={postData.query}
+                onChange={e => setPostData({ ...postData, query: e.target.value })}
+                placeholder='define your fashion'
+              />
+            </div>
+          </div>
+          <button className="send-button" onClick={handlePost}>
+              <AiOutlineSend />
+            </button>
+          <div className="user-input">
+          <input
               type="text"
-              value={postData.query}
-              onChange={e => setPostData({ ...postData, query: e.target.value })}
-              placeholder='define your fashion'
+              value={postData.user}
+              onChange={e => setPostData({ ...postData, user: e.target.value })}
+              placeholder='user id'
             />
           </div>
         </div>
-        <button className="send-button" onClick={handlePost}>
-            <AiOutlineSend />
-          </button>
-        <div className="user-input">
-        <input
-            type="text"
-            value={postData.user}
-            onChange={e => setPostData({ ...postData, user: e.target.value })}
-            placeholder='user id'
-          />
-        </div>
+        {isLoading ? (
+          <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
+        ) : (
+          imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
+        )}
       </div>
-      {isLoading ? (
-        <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
-      ) : (
-        imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
-      )}
+      <div className='right'>
+        <Products ProductsList={products}/>
+      </div>
     </div>
+
   );
 }
 
 export default SearchBar;
-export let ProductsList = productsArray;
 export let Start = start;
+
+
+
+
+
+

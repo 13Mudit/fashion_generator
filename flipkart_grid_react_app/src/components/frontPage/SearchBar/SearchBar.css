@@ -58,4 +58,13 @@
         height: 512px;
         width: 512px;
     }
+
+    .left {
+        width: 60%;
+        float: left;
+    }
+    .right{
+        width:40%;
+        float: right;
+    }
         
