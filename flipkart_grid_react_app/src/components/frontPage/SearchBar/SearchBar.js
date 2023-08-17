@@ -99,6 +99,8 @@ function SearchBar() {
       <div className='left'>
         <div className="prompt-container">
           <div className="prompt-box">
+          <div className='temp-border'></div>
+          <div className='temp-border2'></div>
             <div className="input-container">
               <input
                 type="text"

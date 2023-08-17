@@ -15,6 +15,26 @@
     margin-left: 50px;
     transform: translate(-50%, -50%);
     }
+    .temp-border{
+        z-index: -100;
+        padding: 50px 100px 30px 650px;
+        border: 2px solid black;
+        border-radius: 2px;
+        position: absolute;
+        margin-left: -20px; 
+        margin-top: -20px;
+    }
+    .temp-border2{
+        z-index: -1000;
+        padding: 50px 100px 30px 650px;
+        /* border-left: none; */
+        border-bottom: 8px solid black;
+        border-right: 8px solid black;
+        border-radius: 5px;
+        position: absolute;
+        margin-left: -18px; 
+        margin-top: -18px;
+    }
     
     .input-container {
     display: flex;
@@ -41,7 +61,8 @@
     background-color: #0056b3;
     }  
     .user-input{
-        margin-top: -48px;
+        z-index: 100;
+        margin-top: -46.5px;
         margin-left: 300px;
     }
 
@@ -53,7 +74,7 @@
     }
 
     .geni-image{
-        margin-top: 50px;
+        margin-top: 80px;
         margin-left: -150px;
         height: 512px;
         width: 512px;
@@ -63,11 +84,13 @@
         width: 60%;
         float: left;
     }
+        
     .right{
         width:40%;
         float: right;
         height : 100vh;
         display: inline-block;
         overflow-y: auto;
+        /* border-left: 5px solid black; */
     }
         
