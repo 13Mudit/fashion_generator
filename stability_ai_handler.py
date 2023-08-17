@@ -12,8 +12,8 @@ class StableDiffusion:
 
         self.get_api_key(api_key_file_path)
 
-        # self.engine_id = "stable-diffusion-xl-1024-v1-0"
-        self.engine_id = "stable-diffusion-512-v2-0"
+        self.engine_id = "stable-diffusion-xl-1024-v1-0"
+        # self.engine_id = "stable-diffusion-512-v2-0"
 
 
 

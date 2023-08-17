@@ -35,7 +35,7 @@ for i in range(10):
 		"name": fake.name(),
 		"age": random.choice(possible_ages),
 		"season": random.choice(possible_season),
-		"type": random.choice(possible_type),
+		"type": random.sample(possible_type, 2),
 		"gender": random.choice(possible_gender),
 		"colour": random.choice(possible_colour)
 		})
