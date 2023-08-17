@@ -1,12 +1,36 @@
+// import {ProductsList} from './SearchBar/SearchBar.js';
 import {useState} from 'react';
-import Product from './Product';
-function Products(){
-    return (
-        <div> 
-            <Product image = 'img1' description = 'desc1' />
-            <Product image = 'img2' description = 'desc2' />
+import { Start } from './SearchBar/SearchBar';
+import './Product.css';
+import React from 'react';
 
-        </div>
-    )
-}
+const ProductComponent = ({ image, flipkartLink }) => {
+  return (
+    <div className='article-card'>
+      
+      <a href = {flipkartLink} target = "_blank"> <img src ={image} className='image-cls'/> </a>
+      <br />
+      <br />
+    </div>
+  );
+};
+
+
+const Products = ({ ProductsList }) => {
+//   console.log("ProducstList size", ProductsList.length);
+  
+    try{
+        return (
+            <div>
+            <h2>Products List</h2>
+            {ProductsList.map(product => (
+                <ProductComponent image={product.image_url} flipkartLink={product.url} />
+            ))}
+            </div>
+        );
+    } catch {
+        return <p> Sorry no similar products available </p>
+    }
+};
+  
 export default Products;

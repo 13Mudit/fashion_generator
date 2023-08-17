@@ -1,53 +1,96 @@
 .prompt-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-
-.prompt-box {
-background-color: #fff;
-border: 1px solid #ccc;
-width: 400px;
-/* height: 50px; */
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-position: absolute;
-top: 7%;
-/* left: 15%; */
-margin-left: 2px;
-transform: translate(-50%, -50%);
-}
-
-.input-container {
-display: flex;
-}
-
-.input-container input {
-flex: 1;
-padding: 15px;
-/* margin-bottom: 10px; */
-}
-
-.send-button {
-background-color: #007bff;
-color: #fff;
-border: none;
-padding: 15px 15px;
-margin-left: -265px;
-margin-top: 25.5px;
-cursor: pointer;
-z-index: 100;
-}
-
-.send-button:hover {
-background-color: #0056b3;
-}  
-.user-input{
-    margin-top: -48px;
-}
-
-.user-input input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    .prompt-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 450px;
+    /* height: 50px; */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 7%;
+    margin-left: 50px;
+    transform: translate(-50%, -50%);
+    }
+    .temp-border{
+        z-index: -100;
+        padding: 50px 100px 30px 650px;
+        border: 2px solid black;
+        border-radius: 2px;
+        position: absolute;
+        margin-left: -20px; 
+        margin-top: -20px;
+    }
+    .temp-border2{
+        z-index: -1000;
+        padding: 50px 100px 30px 650px;
+        /* border-left: none; */
+        border-bottom: 8px solid black;
+        border-right: 8px solid black;
+        border-radius: 5px;
+        position: absolute;
+        margin-left: -18px; 
+        margin-top: -18px;
+    }
+    
+    .input-container {
+    display: flex;
+    }
+    
+    .input-container input {
     flex: 1;
     padding: 15px;
-     
-    /* margin-left: 100px;  */
-}
+    /* margin-bottom: 10px; */
+    }
+    
+    .send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 15px;
+    margin-left: 550px;
+    margin-top: 25.5px;
+    cursor: pointer;
+    z-index: 100;
+    }
+
+    .send-button:hover {
+    background-color: #0056b3;
+    }  
+    .user-input{
+        z-index: 100;
+        margin-top: -46.5px;
+        margin-left: 300px;
+    }
+
+    .user-input input{
+        flex: 1;
+        padding: 15px;
+            
+        /* margin-left: 100px;  */
+    }
+
+    .geni-image{
+        margin-top: 80px;
+        margin-left: -150px;
+        height: 512px;
+        width: 512px;
+    }
+
+    .left {
+        width: 60%;
+        float: left;
+    }
+        
+    .right{
+        width:40%;
+        float: right;
+        height : 100vh;
+        display: inline-block;
+        overflow-y: auto;
+        /* border-left: 5px solid black; */
+    }
+        
