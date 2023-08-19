@@ -156,7 +156,10 @@ async def generate(query: Query):
         if latest_trend is None:
             return sdxl.request_no_trend(query.query, query.user, user_preference)
         else:
-            return sdxl.request_trend(query.query, query.user, user_preference, latest_trend['image_url'])
+            try:
+                return sdxl.request_trend(query.query, query.user, user_preference, latest_trend['image_url'])
+            except Exception:
+                return sdxl.request(query.query, query.user, user_preference)  
     else:
         return sdxl.request(query.query, query.user, user_preference)
 
