@@ -14,7 +14,7 @@ class OpenAI:
 
         self.prompt_raw = """your task is to parse an input string and turn it into a JSON object with the following information , if the input string does not create the required information then put null in the JSON. The JSON should consist of the following information:
 - Age specified in query (field name: age, field type: string, possible values: [kid, teen, teen adult, adult])
-- Season specified in the query (field name: season, field type: string, possible values: [summer, winter, summer winter])
+- Season specified in the query (field name: season, field type: string, possible values: [summer, winter, summer or winter])
 - Types of outfit specified is form of list of strings (field name: type, field type: list, possible values: [ethnic, casual, formal, business casual, military, corset, floral, party-wear])
 - Gender specified in query (field name: gender, field type: string, possible values: [male, female])
 - Colours of outfit specified in query in form of a list of strings (field name: colour, field type: list)
