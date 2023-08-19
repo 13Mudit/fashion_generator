@@ -22,7 +22,9 @@ const Products = ({ ProductsList }) => {
     try{
         return (
             <div>
-            <h2>Products List</h2>
+            <h2 className='product-head'>Products List</h2>
+            <div className='product-head-border'></div>
+            <div className='product-head-border2'></div>
             {ProductsList.map(product => (
                 <ProductComponent image={product.image_url} flipkartLink={product.url} />
             ))}

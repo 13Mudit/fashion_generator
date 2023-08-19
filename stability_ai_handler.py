@@ -33,7 +33,7 @@ class StableDiffusion:
 
 
         trend_img = Image.open(BytesIO(trend_response.content))
-        trend_img = trend_img.resize((512, 512))
+        trend_img = trend_img.resize((1024, 1024))
         trend_img.save(f"./out/{user_id}.png")
 
         print("response with trend")
@@ -75,7 +75,7 @@ class StableDiffusion:
         print("response!!")
 
         image = Image.open(BytesIO(base64.b64decode(data['artifacts'][0]["base64"])))
-        image = image.resize((512, 512))
+        image = image.resize((1024, 1024))
         image.save(f"./out/{user_id}.png")
 
         return data["artifacts"][0]["finishReason"]
@@ -96,8 +96,8 @@ class StableDiffusion:
                     }
                 ],
                 "cfg_scale": 35,
-                "height": 512,
-                "width": 512,
+                "height": 1024,
+                "width": 1024,
                 "samples": 1,
                 "steps": 30,
                 "style_preset": "photographic",

@@ -9,10 +9,10 @@ function SearchBar() {
   const [postData, setPostData] = useState({ user: '', query: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
-
+  const [messages, setMessages] = useState([]);
 
   // Function to handle the POST request
-  const handlePost = async () => {
+  const handlePost = async (event) => {
     try {
       setIsLoading(true);
       const response = await fetch('http://localhost:8000/query/', {
@@ -106,7 +106,7 @@ function SearchBar() {
                 type="text"
                 value={postData.query}
                 onChange={e => setPostData({ ...postData, query: e.target.value })}
-                placeholder='define your fashion'
+                placeholder='Define Your Fashion'
               />
             </div>
           </div>
@@ -118,15 +118,16 @@ function SearchBar() {
               type="text"
               value={postData.user}
               onChange={e => setPostData({ ...postData, user: e.target.value })}
-              placeholder='user id'
+              placeholder='User Id'
             />
           </div>
         </div>
         {isLoading ? (
           <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
         ) : (
-          imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
+          imageData && <img  className='geni-image geni-image2' src={imageData} alt="Fetched Image" />
         )}
+        {/* <div className='team-name'>PLACEHOLDERS</div> */}
       </div>
       <div className='right'>
         <Products ProductsList={products}/>
@@ -138,6 +139,14 @@ function SearchBar() {
 
 export default SearchBar;
 export let Start = start;
+
+
+
+
+
+// messages 
+
+// <Messahe History array />
 
 
 
