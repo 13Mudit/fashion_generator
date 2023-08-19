@@ -159,6 +159,7 @@ async def generate(query: Query):
             try:
                 return sdxl.request_trend(query.query, query.user, user_preference, latest_trend['image_url'])
             except Exception:
+                print("trend image not reachable")
                 return sdxl.request_no_trend(query.query, query.user, user_preference)  
     else:
         return sdxl.request(query.query, query.user, user_preference)
