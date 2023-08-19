@@ -170,6 +170,7 @@ async def generate(query: Query):
 
 @app.get("/image/", response_class=FileResponse)
 async def get_image():
+    print(f'Returning image for user {current_session}')
     return f"./out/{current_session}.png"
 
 
