@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 200px;
+    margin-top: 20px;
     }
     
     .prompt-box {
@@ -14,10 +16,11 @@
     top: 7%;
     margin-left: 50px;
     transform: translate(-50%, -50%);
+    margin-top: 20px;
     }
     .temp-border{
         z-index: -100;
-        padding: 50px 100px 30px 650px;
+        padding: 50px 100px 30px 665px;
         border: 2px solid black;
         border-radius: 2px;
         position: absolute;
@@ -26,7 +29,7 @@
     }
     .temp-border2{
         z-index: -1000;
-        padding: 50px 100px 30px 650px;
+        padding: 50px 100px 30px 665px;
         /* border-left: none; */
         border-bottom: 8px solid black;
         border-right: 8px solid black;
@@ -35,8 +38,19 @@
         margin-left: -18px; 
         margin-top: -18px;
     }
+    .team-name{
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        min-width: 20px;
+        font-size: 4rem;
+        margin-top: -520px;
+        margin-left: 120px;
+        font-family: "Oswald", sans-serif;
+        color: brown;
+    }
     
     .input-container {
+    border: 1px solid black;
     display: flex;
     }
     
@@ -47,11 +61,11 @@
     }
     
     .send-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: #ffea00;
+    color: #000000;
+    border: 2px solid black;
     padding: 15px 15px;
-    margin-left: 550px;
+    margin-left: 560px;
     margin-top: 25.5px;
     cursor: pointer;
     z-index: 100;
@@ -61,9 +75,10 @@
     background-color: #0056b3;
     }  
     .user-input{
+        border: 1px solid black;
         z-index: 100;
-        margin-top: -46.5px;
-        margin-left: 300px;
+        margin-top: -50px;
+        margin-left: 280px;
     }
 
     .user-input input{
@@ -74,10 +89,15 @@
     }
 
     .geni-image{
-        margin-top: 80px;
-        margin-left: -150px;
+        margin-top: 70px;
+        margin-left: 50px;
         height: 512px;
         width: 512px;
+    }
+
+    .geni-image2{
+        border: 3px solid black;
+        border-radius: 2%;
     }
 
     .left {
