@@ -33,11 +33,16 @@ for i in range(10):
 	users.insert_one({
 		"id": str(i),
 		"name": fake.name(),
+		# "age": random.choice(possible_ages),
+		# "season": random.choice(possible_season),
+		# "type": random.sample(possible_type, 2),
+		# "gender": random.choice(possible_gender),
+		# "colour": random.choice(possible_colour)
 		"age": random.choice(possible_ages),
-		"season": random.choice(possible_season),
-		"type": random.sample(possible_type, 2),
-		"gender": random.choice(possible_gender),
-		"colour": random.choice(possible_colour)
+		"season": None,
+		"type": None,
+		"gender": None,
+		"colour": None
 		})
 
 

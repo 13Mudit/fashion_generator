@@ -107,13 +107,13 @@ async def generate(query: Query):
     get_on_sale_query =  {
     "$and": [
                 {"age": {"$regex": f".*{user_preference['age']}.*" if user_preference['age'] is not None else ".*"}},
-                {"season": {"$regex": f".*{user_preference_from_prompt['season']}.*" if user_preference_from_prompt['season'] is not None else ".*"}},
+                {"season": {"$regex": f".*{user_preference['season']}.*" if user_preference['season'] is not None else ".*"}},
                 {
-                    "$or": [{"type": {"$regex": f".*{t}.*"}} for t in user_preference_from_prompt['type']] if user_preference_from_prompt['type'] else [{"type": {"$regex": ".*"}}]
+                    "$or": [{"type": {"$regex": f".*{t}.*"}} for t in user_preference['type']] if user_preference['type'] else [{"type": {"$regex": ".*"}}]
                 },
                 {"gender": user_preference['gender'] if user_preference['gender'] else {"$exists": True}},
                 {
-                    "$or": [{"colour": {"$regex": f".*{c}.*"}} for c in user_preference_from_prompt['colour']] if user_preference_from_prompt['colour'] else [{"colour": {"$regex": ".*"}}]
+                    "$or": [{"colour": {"$regex": f".*{c}.*"}} for c in user_preference['colour']] if user_preference['colour'] else [{"colour": {"$regex": ".*"}}]
                 }
             ]
     }
