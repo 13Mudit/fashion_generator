@@ -34,7 +34,7 @@ Other than this, adhere to the below prompt to further customize the garment
             raise Exception(f"Stability API key file doesnt exist at {file_path}")
 
 
-    def request_trend(self, prompt, user_id, user_preferance, image_url, strength=0.3):
+    def request_trend(self, prompt, user_id, user_preference, image_url, strength=0.3):
 
         trend_response = requests.get(image_url)
         if not trend_response:
@@ -47,19 +47,19 @@ Other than this, adhere to the below prompt to further customize the garment
 
         print("response with trend")
 
-        success = self.request(prompt, user_id, user_preferance, strength=strength)
+        success = self.request(prompt, user_id, user_preference, strength=strength)
 
         return success
 
 
-    def request(self, prompt, user_id, user_preferance, strength=0.45):
+    def request(self, prompt, user_id, user_preference, strength=0.45):
 
         full_prompt = self.prompt_raw % (
-            user_preferance['gender'] if user_preferance['gender'] is not None else '',
-            'a ' + user_preferance['age'] if user_preferance['age'] is not None else 'any age',
-            ' or '.join(user_preferance['type']) if user_preferance['type'] else 'any',
-            user_preference['season'] if user_preferance['season'] is not None else 'any',
-            ' and '.join(user_preferance['colour']) if user_preferance['colour'] else 'any',
+            user_preference['gender'] if user_preference['gender'] is not None else '',
+            'a ' + user_preference['age'] if user_preference['age'] is not None else 'any age',
+            ' or '.join(user_preference['type']) if user_preference['type'] else 'any',
+            user_preference['season'] if user_preference['season'] is not None else 'any',
+            ' and '.join(user_preference['colour']) if user_preference['colour'] else 'any',
             prompt
 
             )
@@ -101,14 +101,14 @@ Other than this, adhere to the below prompt to further customize the garment
 
         return data["artifacts"][0]["finishReason"]
 
-    def request_no_trend(self, prompt, user_id, user_preferance):
+    def request_no_trend(self, prompt, user_id, user_preference):
 
         full_prompt = self.prompt_raw % (
-            user_preferance['gender'] if user_preferance['gender'] is not None else '',
-            'a ' + user_preferance['age'] if user_preferance['age'] is not None else 'any age',
-            ' or '.join(user_preferance['type']) if user_preferance['type'] else 'any',
-            user_preference['season'] if user_preferance['season'] is not None else 'any',
-            ' and '.join(user_preferance['colour']) if user_preferance['colour'] else 'any',
+            user_preference['gender'] if user_preference['gender'] is not None else '',
+            'a ' + user_preference['age'] if user_preference['age'] is not None else 'any age',
+            ' or '.join(user_preference['type']) if user_preference['type'] else 'any',
+            user_preference['season'] if user_preference['season'] is not None else 'any',
+            ' and '.join(user_preference['colour']) if user_preference['colour'] else 'any',
             prompt
 
             )
