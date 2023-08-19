@@ -21,7 +21,7 @@ trends = db['trends']
 - Colour of outfit specified in query (field name: colour, field type: string)
 '''
 
-possible_ages = ['kid', 'teen', 'teen_adult', 'adult']
+possible_ages = ['kid', 'teen', 'adult']
 possible_season = ["summer", "winter", "summer winter"]
 possible_type = ["ethnic", "casual", "formal", "business casual", "military", "corset"]
 possible_gender = ["male", "female"]
