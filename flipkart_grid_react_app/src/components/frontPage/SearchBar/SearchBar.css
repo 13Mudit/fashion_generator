@@ -116,7 +116,7 @@
 
     .chat-box{
         position: fixed;
-        bottom: 30px;
+        bottom: 65px;
         left: 80px;
         background-color: #444654;
         z-index: 100;
