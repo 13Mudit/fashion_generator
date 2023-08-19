@@ -64,6 +64,8 @@ Other than this, adhere to the below prompt to further customize the garment
 
             )
 
+        print("Stable Diff prompt:", full_prompt)
+
         response = requests.post(
             f"{self.api_host}/v1/generation/{self.engine_id}/image-to-image",
             headers={
