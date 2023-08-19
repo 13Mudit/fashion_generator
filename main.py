@@ -70,8 +70,8 @@ async def generate(query: Query):
         first_query = True
 
 
-    # user_preference_from_prompt = text_davinci.request(query.query)
-    user_preference_from_prompt = {'age': None, 'season': None, 'type': ['casual'], 'gender': None, 'colour': ['red']}
+    user_preference_from_prompt = text_davinci.request(query.query)
+    # user_preference_from_prompt = {'age': None, 'season': None, 'type': ['casual'], 'gender': None, 'colour': ['red']}
     
     #DEBUG 
     print("OpenAI output:",user_preference_from_prompt)
@@ -154,19 +154,15 @@ async def generate(query: Query):
 
 
         if latest_trend is None:
-            # return sdxl.request_no_trend(query.query, query.user, user_preference)
-            return "SUCCESS"
+            return sdxl.request_no_trend(query.query, query.user, user_preference)
         else:
             try:
-                # return sdxl.request_trend(query.query, query.user, user_preference, latest_trend['image_url'])
-                return "SUCCESS"
+                return sdxl.request_trend(query.query, query.user, user_preference, latest_trend['image_url'])
             except Exception:
                 print("trend image not reachable")
-                # return sdxl.request_no_trend(query.query, query.user, user_preference)
-                return "SUCCESS"  
+                return sdxl.request_no_trend(query.query, query.user, user_preference)
     else:
-        # return sdxl.request(query.query, query.user, user_preference)
-        return "SUCCESS"
+        return sdxl.request(query.query, query.user, user_preference)
 
 
     return 'FAIL'
