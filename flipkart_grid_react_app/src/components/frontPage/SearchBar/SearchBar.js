@@ -11,8 +11,9 @@ function SearchBar() {
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
 
+
   // Function to handle the POST request
-  const handlePost = async (event) => {
+  const handlePost = async () => {
     try {
       setIsLoading(true);
       const response = await fetch('http://localhost:8000/query/', {
@@ -31,9 +32,12 @@ function SearchBar() {
       } else {
         console.error('POST request failed');
       }
+      setMessages([...messages, postData.query]);
+      console.log(messages);
     } catch (error) {
       console.error('Error sending POST request:', error);
     }
+    
   };
 
   // Function to handle the GET request for image
@@ -93,7 +97,7 @@ function SearchBar() {
       };
     }
   }, [imageData]);
-
+  const messageprint = messages.map((messag) => <p className='single-chat-msg'>{messag}</p>);
   return (
     <div>
       <div className='left'>
@@ -106,7 +110,14 @@ function SearchBar() {
                 type="text"
                 value={postData.query}
                 onChange={e => setPostData({ ...postData, query: e.target.value })}
-                placeholder='Define Your Fashion'
+                placeholder='define your fashion'
+                style={{
+                  fontFamily: 'Montserrat, sans-serif', // Change the font family
+                  fontSize: '13px',               // Change the font size
+                  fontWeight: 'bold',            // Change the font weight
+                  color: 'black',                 // Change the font color
+                  borderRadius: '20px', 
+                }}
               />
             </div>
           </div>
@@ -118,16 +129,26 @@ function SearchBar() {
               type="text"
               value={postData.user}
               onChange={e => setPostData({ ...postData, user: e.target.value })}
-              placeholder='User Id'
+              placeholder='user id'
+              style={{
+              fontFamily: 'Montserrat, sans-serif', // Change the font family
+              fontSize: '13px',               // Change the font size
+              fontWeight: 'bold',            // Change the font weight
+              color: 'black', 
+              borderRadius: '20px',                // Change the font color
+            }}
             />
           </div>
         </div>
         {isLoading ? (
           <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
         ) : (
-          imageData && <img  className='geni-image geni-image2' src={imageData} alt="Fetched Image" />
+          imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
         )}
-        {/* <div className='team-name'>PLACEHOLDERS</div> */}
+        <div className="chat-box">
+        <h3 className='chat-box-head'>FASHION HISTORY</h3>
+        <p className='chat-msg'>{messageprint}</p>
+      </div>
       </div>
       <div className='right'>
         <Products ProductsList={products}/>
@@ -139,14 +160,6 @@ function SearchBar() {
 
 export default SearchBar;
 export let Start = start;
-
-
-
-
-
-// messages 
-
-// <Messahe History array />
 
 
 
