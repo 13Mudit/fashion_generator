@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
 import Products from '../Products.js'
-import teamimage from "./PLACEHOLDER.png"
+// import teamimage from "./PLACEHOLDER.png"
+import teamimage from "./logo.png"
 
 let start = 1;
 function SearchBar() {

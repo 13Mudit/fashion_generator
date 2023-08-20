@@ -154,9 +154,9 @@
 
     .team-img{
         position: fixed;
-        height: 100px;
+        height: 120px;
         width: auto;
-        border-radius: 100%;
+        /* border-radius: 100%; */
         left: 25px;
-        top: 20px;
+        top: 10px;
     }
