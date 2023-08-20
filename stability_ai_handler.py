@@ -34,7 +34,7 @@ Other than this, adhere to the below prompt to further customize the garment
             raise Exception(f"Stability API key file doesnt exist at {file_path}")
 
 
-    def request_trend(self, prompt, user_id, user_preference, image_url, strength=0.3):
+    def request_trend(self, prompt, user_id, user_preference, image_url, strength=0.4):
 
         trend_response = requests.get(image_url)
         if not trend_response:
@@ -52,7 +52,7 @@ Other than this, adhere to the below prompt to further customize the garment
         return success
 
 
-    def request(self, prompt, user_id, user_preference, strength=0.45):
+    def request(self, prompt, user_id, user_preference, strength=0.55):
 
         full_prompt = self.prompt_raw % (
             user_preference['gender'] if user_preference['gender'] is not None else '',
