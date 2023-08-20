@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 200px;
+    margin-left: 300px;
     margin-top: 20px;
     }
     
@@ -90,14 +90,15 @@
 
     .geni-image{
         margin-top: 70px;
-        margin-left: 330px;
+        margin-left: 450px;
         height: 512px;
         width: 512px;
     }
 
     .geni-image2{
-        border: 3px solid black;
-        border-radius: 2%;
+        border: 2px solid black;
+        /* border-radius: 50px; */
+        /* box-shadow: 5px 5px; */
     }
 
     .left {
@@ -116,15 +117,15 @@
 
     .chat-box{
         position: fixed;
-        bottom: 30px;
-        left: 80px;
+        bottom: 25px;
+        left: 120px;
         background-color: #444654;
         z-index: 100;
         color: black;
         font-size: 1rem;
         border: 2px black solid;
         width: 250px;
-        min-height: 505px; /* Set a maximum height for the chat container */
+        min-height: 512px; /* Set a maximum height for the chat container */
         overflow-y: auto;
         box-shadow: 5px 5px;
     }
@@ -149,4 +150,13 @@
         margin: 5px;
         font-weight: 1000;
         
+    }
+
+    .team-img{
+        position: fixed;
+        height: 120px;
+        width: auto;
+        /* border-radius: 100%; */
+        left: 25px;
+        top: 10px;
     }
