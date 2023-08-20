@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './SearchBar.css'; // Import your CSS file for styling
 import { AiOutlineSend } from 'react-icons/ai';
 import Products from '../Products.js'
+// import teamimage from "./PLACEHOLDER.png"
+import teamimage from "./logo.png"
 
 let start = 1;
 function SearchBar() {
@@ -101,6 +103,7 @@ function SearchBar() {
   return (
     <div>
       <div className='left'>
+      <div><img className = "team-img" src={teamimage} alt = "."></img></div>
         <div className="prompt-container">
           <div className="prompt-box">
           <div className='temp-border'></div>
@@ -143,7 +146,7 @@ function SearchBar() {
         {isLoading ? (
           <div><img  className='geni-image' src = "https://i.gifer.com/JVX7.gif" alt = "loading"></img></div> 
         ) : (
-          imageData && <img  className='geni-image' src={imageData} alt="Fetched Image" />
+          imageData && <img  className='geni-image geni-image2' src={imageData} alt="Fetched Image" />
         )}
         <div className="chat-box">
         <h3 className='chat-box-head'>FASHION HISTORY</h3>

@@ -84,7 +84,7 @@ async def generate(query: Query):
                 first_query = True
 
         if user_preference_from_prompt[attrb] is not None:
-            user_preference[attrb] = user_preference_from_prompt[attrb]     
+            user_preference[attrb] = user_preference_from_prompt[attrb]
 
     users.update_one({
         "id": current_session
@@ -95,7 +95,8 @@ async def generate(query: Query):
                 "season": user_preference['season'],
                 "type": user_preference['type'],
                 "gender": user_preference['gender'],
-                "colour": user_preference['colour']
+                # "colour": user_preference['colour']
+                "colour": None
             }
         })
 

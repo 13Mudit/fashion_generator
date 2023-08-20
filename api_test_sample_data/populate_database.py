@@ -23,7 +23,7 @@ trends = db['trends']
 
 possible_ages = ['kid', 'teen', 'adult']
 possible_season = ["summer", "winter", "summer winter"]
-possible_type = ["ethnic", "casual", "formal", "business casual", "military", "corset"]
+possible_type = ["ethnic", "casual", "formal", "business casual", "military", "corset", "party-wear"]
 possible_gender = ["male", "female"]
 possible_colour = ['white', 'grey green', 'dark green', 'brown blue', 'white blue', 'black gold', 'pastel green', 'red brown', 'green red', 'cream yellow', 'blue pink', 'green', 'dark grey', 'pink', 'red']
 
@@ -38,7 +38,7 @@ for i in range(10):
 		# "type": random.sample(possible_type, 2),
 		# "gender": random.choice(possible_gender),
 		# "colour": random.choice(possible_colour)
-		"age": random.choice(possible_ages),
+		"age": None,
 		"season": None,
 		"type": None,
 		"gender": None,

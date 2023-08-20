@@ -12,10 +12,10 @@ class StableDiffusion:
 
         self.get_api_key(api_key_file_path)
 
-        # self.engine_id = "stable-diffusion-xl-1024-v1-0"
-        self.engine_id = "stable-diffusion-512-v2-0"
+        self.engine_id = "stable-diffusion-xl-1024-v1-0"
+        # self.engine_id = "stable-diffusion-512-v2-0"
 
-        self.image_size = (512, 512)
+        self.image_size = (1024,1024)
 
         self.prompt_raw = """Show me a garment with the following properties,
 it should be for a %s person who is %s. It should adhere to %s clothing style
@@ -34,7 +34,7 @@ Other than this, adhere to the below prompt to further customize the garment
             raise Exception(f"Stability API key file doesnt exist at {file_path}")
 
 
-    def request_trend(self, prompt, user_id, user_preference, image_url, strength=0.3):
+    def request_trend(self, prompt, user_id, user_preference, image_url, strength=0.4):
 
         trend_response = requests.get(image_url)
         if not trend_response:
@@ -52,7 +52,7 @@ Other than this, adhere to the below prompt to further customize the garment
         return success
 
 
-    def request(self, prompt, user_id, user_preference, strength=0.45):
+    def request(self, prompt, user_id, user_preference, strength=0.55):
 
         full_prompt = self.prompt_raw % (
             user_preference['gender'] if user_preference['gender'] is not None else '',
