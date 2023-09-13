@@ -1,2 +1,8 @@
 # Conversational Fashion Generator using Stable Diffusion!
-Conversational Fashion generator for Flipkart Grid 5.0 2023
+By:
+- Deepanshu Yadav, NSUT
+- Abhishek Singhal, NSUT
+- Aayushi Talwar, NSUT
+- Abhay Kumar Prasad, NSUT
+- Mudit Aggarwal, NSUT
+- Rupali Bisht, NSUT
